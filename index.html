@@ -1,0 +1,840 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ ELAHRESH Sales Pocket Guide™</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.08)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d, #6bcf7f, #4d96ff);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .tagline {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.6);
+        }
+
+        /* Main Content */
+        .main-content {
+            background: linear-gradient(135deg, #2d1b69 0%, #11998e 100%);
+            padding: 4rem 0;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #ffd93d, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ELAHRESH Moves */
+        .moves-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .move-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .move-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .move-card:hover::before {
+            left: 100%;
+        }
+
+        .move-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 215, 0, 0.5);
+        }
+
+        .move-header {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #ffd93d;
+        }
+
+        .move-bullets {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .move-bullets li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .move-bullets li::before {
+            content: '⚡';
+            position: absolute;
+            left: 0;
+            color: #ff6b6b;
+        }
+
+        .battle-cry {
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: center;
+            padding: 1rem;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+            border-radius: 10px;
+            color: white;
+        }
+
+        /* References Section */
+        .references {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 4rem 0;
+        }
+
+        .ref-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .ref-item {
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ref-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(10px);
+        }
+
+        .ref-item.active {
+            background: rgba(255, 215, 0, 0.2);
+            border: 2px solid rgba(255, 215, 0, 0.5);
+        }
+
+        .ref-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .ref-toggle {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+            color: #ffd93d;
+        }
+
+        .ref-item.active .ref-toggle {
+            transform: rotate(180deg);
+        }
+
+        .ref-description {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            margin-top: 0;
+            opacity: 0;
+        }
+
+        .ref-item.active .ref-description {
+            max-height: 300px;
+            margin-top: 1rem;
+            opacity: 1;
+        }
+
+        .ref-bullets {
+            list-style: none;
+            padding: 0;
+        }
+
+        .ref-bullets li {
+            padding: 0.3rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+        }
+
+        .ref-bullets li::before {
+            content: '📚';
+            position: absolute;
+            left: 0;
+        }
+
+        /* Author Section */
+        .author {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            margin: 4rem 0;
+        }
+
+        .author-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Pledge Section */
+        .pledge {
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+            color: #333;
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .pledge-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .promise {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            color: #1e3c72;
+        }
+
+        /* Company Branding */
+        .company-branding {
+            padding: 4rem 0;
+        }
+
+        .branding-card {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .branding-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, #ffd93d, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            color: #ffd93d;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-link:hover {
+            color: white;
+            background: rgba(255, 215, 61, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .branding-tagline {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 3rem 0;
+            background: #1e3c72;
+        }
+
+        .footer-text {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #ffd93d, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .footer-branding {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .moves-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .move-card {
+                margin: 0 10px;
+            }
+            
+            .hero {
+                padding: 2rem 0;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .contact-link {
+                font-size: 1rem;
+            }
+
+            .branding-title {
+                font-size: 2rem;
+            }
+
+            .branding-tagline {
+                font-size: 1.1rem;
+            }
+
+            .ref-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ref-header {
+                font-size: 0.9rem;
+            }
+
+            .ref-bullets li {
+                font-size: 0.85rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Scroll animations */
+        .parallax {
+            transform: translateZ(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="title">⚡ ELAHRESH Sales Pocket Guide™</h1>
+                <p class="tagline">Eight Moves. One System. Never Starve Again.</p>
+                <a href="#system" class="cta-button">Master the System</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <!-- ELAHRESH System -->
+            <section id="system" class="section">
+                <h2 class="section-title">The ELAHRESH System</h2>
+                <div class="moves-grid">
+                    <div class="move-card">
+                        <h3 class="move-header">1️⃣ LISTEN LIKE A LASER</h3>
+                        <ul class="move-bullets">
+                            <li>Ask open-ended questions that matter</li>
+                            <li>Mirror their energy and tone</li>
+                            <li>Summarize what you heard to show understanding</li>
+                            <li>Find the pain behind the words</li>
+                        </ul>
+                        <div class="battle-cry">👉 Battle Cry: "I hear you completely."</div>
+                    </div>
+
+                    <div class="move-card">
+                        <h3 class="move-header">2️⃣ EMPATHIZE LIKE AN EMPATH</h3>
+                        <ul class="move-bullets">
+                            <li>Put yourself in their shoes</li>
+                            <li>Acknowledge their feelings without judgment</li>
+                            <li>Share relevant experiences (briefly)</li>
+                            <li>Make them feel understood, not sold to</li>
+                        </ul>
+                        <div class="battle-cry">👉 Battle Cry: "I understand your struggle."</div>
+                    </div>
+
+                    <div class="move-card">
+                        <h3 class="move-header">3️⃣ AMPLIFY THE URGENCY</h3>
+                        <ul class="move-bullets">
+                            <li>Highlight the cost of inaction</li>
+                            <li>Create time-sensitive opportunities</li>
+                            <li>Use scarcity ethically and honestly</li>
+                            <li>Show what they're missing right now</li>
+                        </ul>
+                        <div class="battle-cry">👉 Battle Cry: "Every moment counts."</div>
+                    </div>
+
+                    <div class="move-card">
+                        <h3 class="move-header">4️⃣ HANDLE OBJECTIONS HEAD-ON</h3>
+                        <ul class="move-bullets">
+                            <li>Welcome objections as buying signals</li>
+                            <li>Use the Feel-Felt-Found method</li>
+                            <li>Turn concerns into selling opportunities</li>
+                            <li>Never argue, always acknowledge first</li>
+                        </ul>
+                        <div class="battle-cry">👉 Battle Cry: "Let's solve this together."</div>
+                    </div>
+
+                    <div class="move-card">
+                        <h3 class="move-header">5️⃣ REFRAME THE PERSPECTIVE</h3>
+                        <ul class="move-bullets">
+                            <li>Shift from cost to investment</li>
+                            <li>Show the bigger picture benefits</li>
+                            <li>Use analogies they can relate to</li>
+                            <li>Make the complex simple</li>
+                        </ul>
+                        <div class="battle-cry">👉 Battle Cry: "See it this way instead."</div>
+                    </div>
+
+                    <div class="move-card">
+                        <h3 class="move-header">6️⃣ EDUCATE WITH STORIES</h3>
+                        <ul class="move-bullets">
+                            <li>Share customer success stories</li>
+                            <li>Use the Before-After-Bridge framework</li>
+                            <li>Make data emotional and personal</li>
+                            <li>Let stories sell, not just facts</li>
+                        </ul>
+                        <div class="battle-cry">👉 Battle Cry: "Let me tell you what happened..."</div>
+                    </div>
+
+                    <div class="move-card">
+                        <h3 class="move-header">7️⃣ SOCIAL PROOF STACK</h3>
+                        <ul class="move-bullets">
+                            <li>Share testimonials at the right moment</li>
+                            <li>Mention similar customers or industries</li>
+                            <li>Use numbers and specific results</li>
+                            <li>Create FOMO with success stories</li>
+                        </ul>
+                        <div class="battle-cry">👉 Battle Cry: "Others are already winning."</div>
+                    </div>
+
+                    <div class="move-card">
+                        <h3 class="move-header">8️⃣ HARVEST THE YES</h3>
+                        <ul class="move-bullets">
+                            <li>Ask for the sale directly and confidently</li>
+                            <li>Use assumptive closing techniques</li>
+                            <li>Offer choices, not yes/no options</li>
+                            <li>Stay silent after asking for the close</li>
+                        </ul>
+                        <div class="battle-cry">👉 Battle Cry: "Are you ready to start winning?"</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- References -->
+            <section class="section references">
+                <h2 class="section-title">📖 References - Click to Learn More</h2>
+                <div class="ref-grid">
+                    <div class="ref-item" data-ref="carnegie">
+                        <div class="ref-header">
+                            <span>Dale Carnegie – How to Win Friends & Influence People</span>
+                            <span class="ref-toggle">▼</span>
+                        </div>
+                        <div class="ref-description">
+                            <ul class="ref-bullets">
+                                <li>Master the art of making people like you instantly</li>
+                                <li>Win people to your way of thinking without argument</li>
+                                <li>Handle complaints and criticism gracefully</li>
+                                <li>Make people feel important and valued</li>
+                                <li>Remember and use people's names effectively</li>
+                                <li>Become genuinely interested in other people</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="ref-item" data-ref="ziglar">
+                        <div class="ref-header">
+                            <span>Zig Ziglar – Secrets of Closing the Sale</span>
+                            <span class="ref-toggle">▼</span>
+                        </div>
+                        <div class="ref-description">
+                            <ul class="ref-bullets">
+                                <li>Master 30+ proven closing techniques</li>
+                                <li>Overcome the fear of asking for the sale</li>
+                                <li>Handle price objections with confidence</li>
+                                <li>Build trust and rapport quickly</li>
+                                <li>Turn "no" into "yes" ethically</li>
+                                <li>Close without being pushy or aggressive</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="ref-item" data-ref="tracy">
+                        <div class="ref-header">
+                            <span>Brian Tracy – The Psychology of Selling</span>
+                            <span class="ref-toggle">▼</span>
+                        </div>
+                        <div class="ref-description">
+                            <ul class="ref-bullets">
+                                <li>Understand the buyer's psychological journey</li>
+                                <li>Build unshakeable self-confidence</li>
+                                <li>Master consultative selling techniques</li>
+                                <li>Develop a winning sales personality</li>
+                                <li>Use psychology to influence buying decisions</li>
+                                <li>Overcome call reluctance and fear</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="ref-item" data-ref="voss">
+                        <div class="ref-header">
+                            <span>Chris Voss – Never Split the Difference</span>
+                            <span class="ref-toggle">▼</span>
+                        </div>
+                        <div class="ref-description">
+                            <ul class="ref-bullets">
+                                <li>Use FBI negotiation tactics in sales</li>
+                                <li>Master tactical empathy and mirroring</li>
+                                <li>Get to "that's right" instead of "yes"</li>
+                                <li>Handle difficult negotiations with ease</li>
+                                <li>Use calibrated questions to gain control</li>
+                                <li>Negotiate from a position of strength</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="ref-item" data-ref="pink">
+                        <div class="ref-header">
+                            <span>Daniel Pink – To Sell Is Human</span>
+                            <span class="ref-toggle">▼</span>
+                        </div>
+                        <div class="ref-description">
+                            <ul class="ref-bullets">
+                                <li>Understand why everyone is in sales now</li>
+                                <li>Master the new ABCs: Attunement, Buoyancy, Clarity</li>
+                                <li>Move from problem-solving to problem-finding</li>
+                                <li>Develop emotional resilience for rejection</li>
+                                <li>Use purpose as your ultimate motivator</li>
+                                <li>Adapt to the modern buyer's journey</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="ref-item" data-ref="klaff">
+                        <div class="ref-header">
+                            <span>Oren Klaff – Pitch Anything</span>
+                            <span class="ref-toggle">▼</span>
+                        </div>
+                        <div class="ref-description">
+                            <ul class="ref-bullets">
+                                <li>Control the frame in every interaction</li>
+                                <li>Create intrigue and curiosity</li>
+                                <li>Use neuroscience to influence decisions</li>
+                                <li>Master the STRONG method of pitching</li>
+                                <li>Handle high-stakes presentations</li>
+                                <li>Make your audience chase you</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="ref-item" data-ref="holmes">
+                        <div class="ref-header">
+                            <span>Chet Holmes – The Ultimate Sales Machine</span>
+                            <span class="ref-toggle">▼</span>
+                        </div>
+                        <div class="ref-description">
+                            <ul class="ref-bullets">
+                                <li>Build systematic sales processes</li>
+                                <li>Master the education-based selling approach</li>
+                                <li>Create irresistible offers</li>
+                                <li>Develop killer sales presentations</li>
+                                <li>Turn your company into a sales machine</li>
+                                <li>Focus on the vital few activities</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="ref-item" data-ref="belfort">
+                        <div class="ref-header">
+                            <span>Jordan Belfort – Way of the Wolf</span>
+                            <span class="ref-toggle">▼</span>
+                        </div>
+                        <div class="ref-description">
+                            <ul class="ref-bullets">
+                                <li>Master the Straight Line Persuasion System</li>
+                                <li>Control tonality and body language</li>
+                                <li>Build massive certainty in prospects</li>
+                                <li>Use looping patterns to overcome objections</li>
+                                <li>Create urgency and scarcity ethically</li>
+                                <li>Develop unstoppable confidence</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Author -->
+            <section class="section author">
+                <h2 class="section-title">✍️ About the Author: Emhemed Elahresh</h2>
+                <div class="author-text">
+                    <p>Emhemed Elahresh is an entrepreneur, writer, and builder of practical systems that turn ordinary people into extraordinary performers. Through his Victory Hour Enterprises projects, he combines creativity, grit, and social impact to empower salespeople, dreamers, and hustlers worldwide.</p>
+                    
+                    <p>From chocolate factories to digital apps, from children's books to AI tools, his mission has always been the same: to create, to inspire, and to give back.</p>
+                    
+                    <p>With the ELAHRESH Sales System™, Emhemed delivers not just a method for selling, but a philosophy for living — one built on courage, connection, and confidence.</p>
+                </div>
+            </section>
+
+            <!-- Pledge -->
+            <section class="section pledge">
+                <h2 class="section-title">🍞 The 10% Pledge: Fighting Hunger</h2>
+                <div class="pledge-text">
+                    <p><strong>Every book. Every product. Every sale. 10% goes to feed the hungry.</strong></p>
+                    
+                    <p>Why? Because sales without soul is empty. Because no matter how sharp your pitch, true success is measured by how many people eat at the table, not just how many deals you close.</p>
+                    
+                    <p>When you apply ELAHRESH and grow your income, remember this: you now have the power to lift others. Whether it's your community, your family, or strangers across the globe — giving is the real harvest.</p>
+                    
+                    <div class="promise">⚡ The ELAHRESH Promise:<br>Learn the system. Master the craft. Share the abundance.</div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+            <!-- Company Branding -->
+            <section class="section company-branding">
+                <div class="branding-card">
+                    <h2 class="branding-title">Built by Victory Hour Multimedia Inc.</h2>
+                    <div class="branding-content">
+                        <div class="contact-info">
+                            <a href="https://www.victoryhourmedia.com" class="contact-link">🌐 www.victoryhourmedia.com</a>
+                            <a href="mailto:info@victoryhourmedia.com" class="contact-link">✉️ info@victoryhourmedia.com</a>
+                        </div>
+                        <p class="branding-tagline"><strong>We build brands that lead.</strong> From strategy to design to digital presence—your growth is our mission.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-text">Live it. And you'll never starve.</div>
+            <div class="footer-branding">
+                <p>© 2024 Victory Hour Multimedia Inc. | Building brands that lead.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for CTA button
+        document.querySelector('.cta-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#system').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Parallax effect for hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        });
+
+        // Add some dynamic interactions
+        document.querySelectorAll('.move-card').forEach((card, index) => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // References expandable functionality
+        document.querySelectorAll('.ref-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // Close all other items
+                document.querySelectorAll('.ref-item').forEach(otherItem => {
+                    if (otherItem !== this) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                this.classList.toggle('active');
+            });
+        });
+
+        // Add subtle hover effects to reference items
+        document.querySelectorAll('.ref-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                if (!this.classList.contains('active')) {
+                    this.style.transform = 'translateX(15px) scale(1.02)';
+                }
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                if (!this.classList.contains('active')) {
+                    this.style.transform = 'translateX(0) scale(1)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
